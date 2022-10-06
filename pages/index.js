@@ -3,8 +3,6 @@ import { Card, Button, Grid } from 'semantic-ui-react';
 import games from '../ethereum/games';
 import Layout from '../components/Layout';
 import { Link } from '../routes';
-
-//TournamentPoH es una función 
 import TournamentPoH from '../ethereum/tournament';
 
 class TournamentIndex extends Component{
@@ -18,8 +16,7 @@ class TournamentIndex extends Component{
         for (let i = 0; i<tournaments.length; i++)
         {
             const tournament = await TournamentPoH(tournaments[i]);
-            const summary = await tournament.methods.getSummary().call();
-           
+            const summary = await tournament.methods.getSummary().call();          
             const regisClose = await tournament.methods.getRegistrationClose().call();
 
             if (!summary[7] && !regisClose){
@@ -28,8 +25,6 @@ class TournamentIndex extends Component{
                 j++;
             }    
         }
-
-        
         return { tournamentsOpen, nameTournament };
     }
 
@@ -53,7 +48,8 @@ class TournamentIndex extends Component{
     render(){
         return(
             <Layout>
-                 <h3>Open Tournaments (Goerli Test Network at Metamask)</h3>
+                 <h3>Open Tournaments</h3>
+                 <h4 style={{ color: 'red' }}>(Requires Open Metamask in Goerli Test Network)</h4>
                  <h4>Tournaments to compete, win and contribute to humanity</h4>
                 <Grid>
                     <Grid.Column width={12}>

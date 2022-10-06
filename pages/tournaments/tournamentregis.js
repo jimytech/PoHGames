@@ -64,8 +64,7 @@ onSubmit = async (event) => {
 
     const tournament = await TournamentPoH (props.query.address);
     const summary = await tournament.methods.getSummary().call();
-    const accounts = await web3.eth.requestAccounts();   
-   
+    const accounts = await web3.eth.requestAccounts();     
     const regis = await tournament.methods.getGamers(accounts[0]).call();
     const status = (regis)?"You are registered":"You are not registered";
 
