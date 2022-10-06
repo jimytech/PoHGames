@@ -54,6 +54,7 @@ class TournamentIndex extends Component{
         return(
             <Layout>
                  <h3>Open Tournaments (Goerli Test Network at Metamask)</h3>
+                 <h4>Tournaments to compete, win and contribute to humanity</h4>
                 <Grid>
                     <Grid.Column width={12}>
                         <div>                          
